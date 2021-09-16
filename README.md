@@ -8,8 +8,8 @@
 
 ![微信扫一扫](doc/images/微信二维码.jpg "微信二维码")
 
-## 文章目录 []
+## 文章目录 [1]
 
-### Git []
+### Git [1]
 
-    - [Github访问慢解决办法.md](Git/GItHub访问慢解决方法.md)
+- [Github访问慢解决办法.md](Git/GItHub访问慢解决方法.md)
