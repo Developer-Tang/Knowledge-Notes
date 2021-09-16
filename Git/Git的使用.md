@@ -10,7 +10,7 @@
 
 > 确切的说 GitHub 是一家公司，位于旧金山，由 Chris Wanstrath、 PJ Hyett 与 Tom Preston-Werner 三位开发者在2008年4月创办。这是它的 Logo：
 
-<img src="images/20210722171919.jpg" alt="img" style="zoom: 40%;" />
+![](images/20210722171919.jpg)
 
 > 2008年4月10日，GitHub正式成立，主要提供基于git的版本托管服务。一经上线，它的发展速度惊为天人，截止目前，GitHub 已经发展成全球最大的开源社区。 所以 Git 只是 GitHub上用来管理项目的一个工具而已，但是GitHub 的功能可远不止于此！
 
@@ -22,7 +22,7 @@
 
 > 下图就是标准的集中式版本控制工具管理方式：
 
-<img src="https://gitee.com/Developer-Tang/ImageDatabase/raw/master/image/Git/20210722171924.jpg" alt="img" style="zoom: 50%;" />
+![](images/20210722171924.jpg)
 
 > 集中管理方式在一定程度上看到其他开发人员在干什么，而管理员也可以很轻松掌握每个人的开发权限。
 
@@ -37,7 +37,7 @@
 
 > 下图就是分布式版本控制工具管理方式：
 
-<img src="images/20210722171929.jpg" alt="img" style="zoom:80%;" />
+![](images/20210722171929.jpg)
 
 ## 2.Git安装
 
@@ -47,11 +47,11 @@
 
 下载地址：https://git-scm.com/download
 
-<img src="images/image-20210916153457712.png" alt="image-20210916153457712" style="zoom:80%;" />
+![image-20210916153457712](images/image-20210916153457712.png)
 
 ### 2.2.安装
 
-<img src="https://gitee.com/Developer-Tang/ImageDatabase/raw/master/image/Git/20210722171934.png" alt="img" style="zoom: 80%;" />
+![img](images/20210722171934.png)
 
 > 一路“Next”使用默认选项即可。
 
