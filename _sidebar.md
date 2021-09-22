@@ -7,7 +7,7 @@
 - [Git命令大全.md](Git/Git命令大全.md)
 - [Git提交规范.md](Git/Git提交规范.md)
 
-### Linux [1]
+### Linux [2]
 
 - [Linux用户管理.md](Linux/Linux用户管理.md)
-- [SCP传输命令.md](Linux/SCP传输命令.md)
+- [Linux实用命令.md](Linux/Linux实用命令.md)

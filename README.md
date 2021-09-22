@@ -13,7 +13,7 @@
 
 ![微信扫一扫](doc/images/微信二维码.jpg "微信二维码")
 
-## 文章目录 [5]
+## 文章目录 [6]
 
 ### Git [4]
 
@@ -22,7 +22,7 @@
 - [Git命令大全.md](Git/Git命令大全.md)
 - [Git提交规范.md](Git/Git提交规范.md)
 
-### Linux [1]
+### Linux [2]
 
 - [Linux用户管理.md](Linux/Linux用户管理.md)
-- [SCP传输命令.md](Linux/SCP传输命令.md)
+- [Linux实用命令.md](Linux/Linux实用命令.md)
