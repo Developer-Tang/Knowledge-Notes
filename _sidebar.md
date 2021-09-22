@@ -10,3 +10,4 @@
 ### Linux [1]
 
 - [Linux用户管理.md](Linux/Linux用户管理.md)
+- [SCP传输命令.md](Linux/SCP传输命令.md)
