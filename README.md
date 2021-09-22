@@ -1,4 +1,4 @@
-# Knowledge-Notes-Other
+# Knowledge-Notes
 
 ## 介绍
 
