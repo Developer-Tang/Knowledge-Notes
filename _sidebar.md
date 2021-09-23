@@ -1,6 +1,8 @@
 - [**封面**](/)
 - [**首页**](/README)
 - **Java**
+  - **Cache**
+    - [GuavaCache原理分析与最佳实践.md](Java/Cache/GuavaCache原理分析与最佳实践.md)
 - **Git**
   - [Github访问慢解决办法.md](Git/Github访问慢解决办法.md)
   - [Git的使用.md](Git/Git的使用.md)

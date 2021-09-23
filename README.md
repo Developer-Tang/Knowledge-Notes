@@ -8,10 +8,13 @@
 
 ![微信扫一扫](doc/images/微信二维码.jpg "微信二维码")
 
-## 文章目录【6】
+## 文章目录【7】
 
-### Java【】
+### Java【1】
 
+#### Cache【1】
+
+- [GuavaCache原理分析与最佳实践.md](Java/Cache/GuavaCache原理分析与最佳实践.md)
 ### Git【4】
 
 - [Github访问慢解决办法.md](Git/Github访问慢解决办法.md)
