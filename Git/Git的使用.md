@@ -155,7 +155,7 @@ git commit -m "本次提交的说明" # 将暂存区的文件提交到【版本�
 
 > 我们对readme.txt文件进行修改:
 
-<img src="images/20210722172016.png" alt="img" style="zoom:80%;" />
+![img](images/20210722172016.png)
 
 > 通过 **`git diff -- readme.txt`**  命令可以查看工作区和版本库里面最新版本的区别:
 
