@@ -1,5 +1,3 @@
-[toc]
-
 ## Git简介
 
 > 此文章来源与网上黑马的教程材料+个人改动一部分
@@ -183,7 +181,7 @@ git commit -m "本次提交的说明" # 将暂存区的文件提交到【版本�
 
 > 编辑readme.txt文件:
 
-<img src="https://gitee.com/Developer-Tang/ImageDatabase/raw/master/image/Git/20210722172035.png" alt="img" style="zoom:80%;" />
+![image-20210924125334706](images/Git的使用/image-20210924125334706.png)
 
 > 提交到版本库:
 
