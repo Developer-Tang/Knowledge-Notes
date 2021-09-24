@@ -7,5 +7,5 @@
 <a href='https://gitee.com/Developer-Tang/Knowledge-Notes/members'><img src='https://gitee.com/Developer-Tang/Knowledge-Notes/badge/fork.svg?theme=dark' alt='fork'></img></a>
 
 [Gitee](<https://gitee.com/Developer-Tang/Knowledge-Notes>)
-[Github](<xxxxxxx>)
+[Github](<https://github.com/Developer-Tang/Knowledge-Notes>)
 [开始阅读](README.md)
