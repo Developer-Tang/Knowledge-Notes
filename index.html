@@ -34,7 +34,7 @@
         loadSidebar: true,
         alias: { //避免不必要的回退过程
             '/.*/_navbar.md': '/_navbar.md',
-            '/.*/_sidebar.md': '/_sidebar.md',
+            '/(.*)/.*/_sidebar.md': '/$1/_sidebar.md',
         },
         // 侧边栏显示当前页面的目录(标题)
         subMaxLevel: 3,

@@ -8,4 +8,4 @@
 
 [Gitee](<https://gitee.com/Developer-Tang/Knowledge-Notes>)
 [Github](<https://github.com/Developer-Tang/Knowledge-Notes>)
-[开始阅读](README.md)
+[开始阅读](/README.md)

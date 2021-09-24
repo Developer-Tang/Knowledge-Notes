@@ -1,6 +1,6 @@
 <h1 style="color: cornflowerblue">Knowledge-Notes</h1>
 
-# 介绍
+## 介绍
 
 > 本仓库记录个人学习过程中的笔记，以及其他地方看到值得记录的文章等
 
@@ -8,23 +8,23 @@
 
 ![微信扫一扫](doc/images/微信二维码.jpg "微信二维码")
 
-# 文章目录
+## 文章目录
 
-## Java
+### [Java](Java/README.md)
 
-- ### Cache
-    - [GuavaCache原理分析与最佳实践.md](Java/Cache/GuavaCache原理分析与最佳实践.md)
+- #### Cache
+  - [GuavaCache原理分析与最佳实践.md](Java/Cache/GuavaCache原理分析与最佳实践.md)
 
-- ### Dataway
-    - [Dataway入门.md](Java/Dataway/Dataway入门.md)
+- #### Dataway
+  - [Dataway入门.md](Java/Dataway/Dataway入门.md)
 
-## Git
+### Git
 
 - [Git的使用.md](Git/Git的使用.md)
 - [Git命令大全.md](Git/Git命令大全.md)
 - [Git提交规范.md](Git/Git提交规范.md)
 
-## Linux
+### Linux
 
 - [Linux用户管理.md](Linux/Linux用户管理.md)
 - [Linux实用命令.md](Linux/Linux实用命令.md)
