@@ -23,7 +23,7 @@
     mermaid.initialize({startOnLoad: false});
     // docsify文档相关配置
     window.$docsify = {
-        name: '📙 Tang的笔记',
+        name: `📙 Tang的笔记`,
         // 设置封面
         coverpage: true,
         // 只显示封面
@@ -99,5 +99,22 @@
 <script src="//unpkg.com/prismjs/components/prism-cpp.js"></script>
 <script src="//unpkg.com/prismjs/components/prism-python.js"></script>
 <script src="//unpkg.com/prismjs/components/prism-properties.js"></script>
+<!-- Gitalk评论功能 -->
+<link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: '41dd621946bec3c26ff8',
+        clientSecret: 'e164557783ee3117b1136cf4f2a54b4f70f2412a',
+        repo: 'Knowledge-Notes',
+        owner: 'Developer-Tang',
+        admin: ['Developer-Tang'],
+        // facebook-like distraction free mode
+        distractionFreeMode: false,
+        // 用于标记评论是哪个页面的，确保唯一，并且长度小于50
+        id: location.pathname
+    })
+</script>
 </body>
 </html>
