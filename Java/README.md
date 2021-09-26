@@ -21,12 +21,15 @@
 | 2017/9 | 1.9 / 9.0 |
 | 2018/3 | 10        |
 | 2018/9 | 11        |
+| ...    | ...       |
 
 ## JDK、JRE、JVM
 
-> - **JDK：**Java Development Kit
-> - **JRE：**Java Runtime Environment
-> - **JVM：**Java Virtual Machine
+> **JDK：**Java Development Kit (Java 开发工具包)
+>
+> **JRE：**Java Runtime Environment (Java运行时环境)
+>
+> **JVM：**Java Virtual Machine (Java虚拟机)
 
 ```mermaid
 graph TB
@@ -40,5 +43,14 @@ graph TB
     end
 ```
 
+## 安装JDK
 
+> 当前环境为虚拟机中的Windows系统，Mac及Linux、Ubuntu等请自行寻找安装教程
 
+### JDK8下载
+
+> oracle官方下载地址需要登录，所以这里选择去国内开源镜像站下载
+> 
+> 阿里镜像站：[https://developer.aliyun.com/mirror/](https://developer.aliyun.com/mirror/)
+> 
+> 华为镜像站：
