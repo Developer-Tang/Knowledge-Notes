@@ -34,9 +34,9 @@
 
 >JAVA_HOME：**填刚才的安装路径**
 >
->CLASS_PATH：**.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar**
+>CLASS_PATH：**\.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar**
 >
->PATH追加：**%JAVA_HOME%\bin**
+>PATH追加：**\%JAVA_HOME%\bin**
 
 ![image-20210926173303865](安装JDK/image-20210926173303865.png)
 
