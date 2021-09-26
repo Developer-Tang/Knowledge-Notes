@@ -42,15 +42,3 @@ graph TB
         DT(Develop Tools)
     end
 ```
-
-## 安装JDK
-
-> 当前环境为虚拟机中的Windows系统，Mac及Linux、Ubuntu等请自行寻找安装教程
-
-### JDK8下载
-
-> oracle官方下载地址需要登录，所以这里选择去国内开源镜像站下载
-> 
-> 阿里镜像站：[https://developer.aliyun.com/mirror/](https://developer.aliyun.com/mirror/)
-> 
-> 华为镜像站：

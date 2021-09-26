@@ -1,2 +1,5 @@
 - [📖**首页**](/README)
-- [**Java**](/Java/README.md)
+- **Java**
+    - [Java简介.md](/Java/README.md)
+    - **Java基础**
+        - [安装JDK.md](/Java/Java基础/安装JDK.md)
