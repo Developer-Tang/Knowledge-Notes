@@ -33,7 +33,7 @@
 >
 > **JVM：**Java Virtual Machine (Java虚拟机)
 
-[comment]: <> (TODO: 需更换图表为图片 )
+[comment]: <> (TODO:需更换图表为图片)
 ```mermaid
 graph TB
     subgraph JDK
