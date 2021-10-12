@@ -2,11 +2,15 @@
 
 > 这里对Java基础语法不做过多的介绍，主要以面试和工作中需要用到或注意的地方做记录和讲解，对基础感兴趣的可以去自行查找学习
 
+
+
 ## 介绍
 
 > 百度百科：Java是一门面向对象编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、指针等概念，因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程
 
 > Java介于编译型语言和解释型语言之间。Java是将代码编译成一种字"节码"，它类似于抽象的CPU指令，然后，针对不同平台编写虚拟机(JVM)，不同平台的虚拟机负责加载字节码并执行，这样就实现了"一次编写，到处运行"的效果。当然，这是针对Java开发者而言。对于虚拟机，需要为每个平台分别开发。为了保证不同平台、不同公司开发的虚拟机都能正确执行Java字节码
+
+
 
 ## Java版本发布时间
 
@@ -25,6 +29,8 @@
 | 2018/9 | 11        |
 | ...    | ...       |
 
+
+
 ## JDK、JRE、JVM
 
 > **JDK：**Java Development Kit (Java 开发工具包)
@@ -32,16 +38,7 @@
 > **JRE：**Java Runtime Environment (Java运行时环境)
 >
 > **JVM：**Java Virtual Machine (Java虚拟机)
+>
+> 
 
-[comment]: <> (TODO:需更换图表为图片)
-```mermaid
-graph TB
-    subgraph JDK
-        subgraph JRE
-            subgraph "JVM（虚拟机）"
-            end
-            RL("Runtime Library（运行时类库）")
-        end
-        DT("Develop Tools（开发工具包）")
-    end
-```
+![image-20211012124818021](README/image-20211012124818021.png)
