@@ -6,7 +6,11 @@
 >
 > 地址：[https://repo.huaweicloud.com/java/jdk/](https://repo.huaweicloud.com/java/jdk/)
 
-![image-20210926142735287](安装JDK/image-20210926142735287.png)
+![image-20211013133939633](安装JDK/image-20211013133939633.png)
+
+> 根据自身系统版本下载对应的安装程序
+
+![image-20211013134059998](安装JDK/image-20211013134059998.png)
 
 ### 执行安装
 
@@ -26,17 +30,17 @@
 
 > 现在虽然已经安装完了，但是没有配置全局变量，Java命令还是不能用
 
-> 打开资源管理器 => 右键属性 => 关于中找到高级系统设置 => 点击环境变量
+> 打开资源管理器 => 单击此电脑 => 右键选属性 => 关于中找到高级系统设置 => 点击环境变量
 
 ![image-20210926144837803](安装JDK/image-20210926144837803.png)
 
 > 系统环境变量中新增 **JAVA_HOME** 、**CLASSP_PATH** ，**PATH** 中追加一条记录并置顶
 
->JAVA_HOME：**填刚才的安装路径**
+>新增 *JAVA_HOME* ：**填刚才的安装路径**
 >
->CLASS_PATH：**\.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar**
+>新增 *CLASS_PATH* ：**`.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar`**
 >
->PATH追加：**\%JAVA_HOME%\bin**
+>编辑 *PATH* 追加：**`%JAVA_HOME%\bin`**
 
 ![image-20210926173303865](安装JDK/image-20210926173303865.png)
 
@@ -44,8 +48,6 @@
 
 ![image-20210926173610126](安装JDK/image-20210926173610126.png)
 
-> 打开CMD命令行，执行 **Java --version** 与 **javac**
->
-> 我这是win11中文包显示问题，不用在意，只要不提示找不到命令就行
+> 打开CMD命令行，执行 **`java -version`** 与 **`javac`**
 
-![image-20210926173844796](安装JDK/image-20210926173844796.png)
+![image-20211013134642855](安装JDK/image-20211013134642855.png)
