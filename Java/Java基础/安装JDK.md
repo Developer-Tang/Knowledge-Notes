@@ -38,9 +38,9 @@
 
 >新增 *JAVA_HOME* ：**填刚才的安装路径**
 >
->新增 *CLASS_PATH* ：**`.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar`**
+>新增 *CLASS_PATH* ：`.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar`
 >
->编辑 *PATH* 追加：**`%JAVA_HOME%\bin`**
+>编辑 *PATH* 追加：`%JAVA_HOME%\bin`
 
 ![image-20210926173303865](安装JDK/image-20210926173303865.png)
 
@@ -48,6 +48,6 @@
 
 ![image-20210926173610126](安装JDK/image-20210926173610126.png)
 
-> 打开CMD命令行，执行 **`java -version`** 与 **`javac`**
+> 打开CMD命令行，执行 `java -version` 与 `javac`
 
 ![image-20211013134642855](安装JDK/image-20211013134642855.png)
