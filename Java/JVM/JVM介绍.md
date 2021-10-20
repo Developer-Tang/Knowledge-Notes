@@ -8,5 +8,5 @@
 
 ## JVM整体架构
 
-![image-20211018170652269](JVM介绍/image-20211018170652269.png)
+![JVM结构简图](JVM介绍/JVM结构简图.drawio.svg)
 
