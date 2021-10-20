@@ -56,10 +56,11 @@
 >
 > **JVM：**Java Virtual Machine (Java虚拟机)
 
-![image-20211012124818021](README/image-20211012124818021.png)
+![JDK的组成结构](README/JDK的组成结构.drawio.svg)
 
 
 
 ## Java的加载运行流程
 
-![image-20211020145824988](README/image-20211020145824988.png)
+![Java的加载与执行流程](README/Java的加载与执行流程.drawio.svg)
+
