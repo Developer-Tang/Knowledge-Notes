@@ -3,6 +3,7 @@
     - [Java简介.md](/Java/README.md)
     - **Java基础**
         - [安装JDK.md](/Java/Java基础/安装JDK.md)
+        - [Java基础知识.md](/Java/Java基础/Java基础知识.md)
     - **JVM**
         - [JVM介绍.md](/Java/JVM/JVM介绍.md)
 - **Markdown**
