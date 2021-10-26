@@ -11,11 +11,15 @@
 | **double**  | 8      | 0.0D           | Double    |
 | **boolean** | 1      | false          | Boolean   |
 
-### 数值类型的取值范围
+#### 数值类型的取值范围
 
-> 整数的取值范围计算，$-2^{8*N-1}\mbox{ ～ }2^{8*N-1}-1$  N：字节数 
+> 整数的取值范围计算，N：字节数
+>
+> ![image-20211026120533655](Java基础知识/image-20211026120533655.png)
 
-### 数值类型转换
+
+
+#### 数值类型转换
 
 ![数值类型转换.drawio](Java基础知识/数值类型转换.drawio.svg)
 
@@ -108,3 +112,11 @@
 - **Exception：**又有两个分支，一个是运行时异常RuntimeException ，一个是检查异常CheckedException
   - **RuntimeException：**RuntimeException是那些可能在 Java 虚拟机正常运行期间抛出的异常的超类
   - **CheckedException：**一般是外部错误，这种异常都发生在编译阶段，Java 编译器会强制程序去捕获此类异常，即会出现要求你把这段可能出现异常的程序进行 try catch
+
+
+
+## throw与throws的区别
+
+- **throw：**在函数体内使用，可以抛出指定类型的异常，执行带throw会终止其功能将问题抛给调用者
+- **throws：**在函数声明上，可以指定多个可能会发生的异常，并不一定发生该异常
+
