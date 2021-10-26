@@ -6,7 +6,3 @@
         - [Java基础知识.md](/Java/Java基础/Java基础知识.md)
     - **JVM**
         - [JVM介绍.md](/Java/JVM/JVM介绍.md)
-- **Markdown**
-    - [Markdown简介.md](/Markdown/README.md)
-    - [Markdown数学公式.md](/Markdown/Markdown数学公式.md)
-    - [Markdown图表绘制.md](/Markdown/Markdown图表绘制.md)
