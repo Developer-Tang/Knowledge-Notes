@@ -23,7 +23,7 @@
 
 ![数值类型转换.drawio](Java基础知识/数值类型转换.drawio.svg)
 
-> 强制转换精度会丢失，如float转int：由于float的变量的存储空间大于int，float在被强转为int时因为int类型存储空间不足，float变量的数据会被截断从而导致数据精度发生变化，请酌情使用强制转换，Java中boolean类型不能参与数值类型的转换
+> 强制转换精度会丢失，如float转int：由于float的变量的存储空间大于int，float在被强转为int时因为int类型存储空间不足，float变量的数据会被截断去掉高位保存低位从而导致数值发生变化，请酌情使用强制转换，Java中boolean类型不能参与数值类型的转换
 
 
 
@@ -203,3 +203,6 @@
 #### Java7中HashMap头插法的危害
 
 > map扩容时，头插法会使链表发生反转，多线程环境下会产生环；
+
+![](Java基础知识/HashMap头插法危害.drawio.svg)
+
