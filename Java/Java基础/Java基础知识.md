@@ -92,7 +92,7 @@
 
 - **supr：**supr指向父类空间，supr.xx指向父类变量，supr.xx()指向父类方法，supr()指向父类的空参/含参构造器
 
-> 子类的构造器不手动调用supr()的话，会隐式自动在构造器开始处执行supr()
+> 子类构造器中会默认调用supr()
 
 
 
@@ -192,7 +192,7 @@
 
 #### Java8 HashMap
 
-> Java8 对HashMap 进行了一些修改，最大的不同就是利用了红黑树，所以其由数组+链表+红黑树组成。
+> Java8 对HashMap 进行了一些修改，最大的不同就是利用了红黑树，所以其由数组+链表+[红黑树](/数据结构/红黑树图解.md)组成。
 
 > 根据Java7 HashMap 的介绍，我们知道，查找的时候，根据hash 值我们能够快速定位到数组的具体下标，但是之后的话，需要顺着链表一个个比较下去才能找到我们需要的，时间复杂度取决于链表的长度，为 O(n)。为了降低这部分的开销，在 Java8 中，当链表中的元素超过了 8 个以后，会将链表转换为红黑树，在这些位置进行查找的时候可以降低时间复杂度为 O(logN)。
 
@@ -206,3 +206,34 @@
 
 ![](Java基础知识/HashMap头插法危害.drawio.svg)
 
+### ConcurrentHashMap
+
+#### Java7中的ConcurrentHashMap
+
+> Java7中ConcurrentHashMap采用与HashMap相同的**存储格式：数据+链表**，但引入了Segment分段锁的概念，转变成了两层结构，第一次Hash确定所在Segment，第二次Hash确定具体的节点位置
+
+![](Java基础知识/Java7ConcurrentHashMap原理.drawio.svg)
+
+> Java7中ConcurrentHashMap应对多线程时的处理如下
+
+![](Java基础知识/Java7ConcurrentHashMap多线程原理.drawio.svg)
+
+#### Java8中的ConcurrentHashMap
+
+> Java8中ConcurrentHashMap抛弃了Segment分段锁，采用了粒度更细的加锁方式，使用Synchronized锁数组中的根节点使之支持更高的并发量
+
+![](Java基础知识/Java8ConcurrentHashMap结构.drawio.svg)
+
+> Java8中ConcurrentHashMap应对多线程时的处理如下
+
+![](Java基础知识/Java8ConcurrentHashMap多线程原理.drawio.svg)
+
+### HashTable
+
+> HashTable中hash数组默认大小是11，扩容的方式是 old*2+1，继承自Dictionary类，HashTable采用了锁全表的方式来保证线程安全，在性能上比不上ConcurrentHashMap，所以不推荐使用
+
+### TreeMap
+
+> TreeMap 实现 SortedMap 接口，能够把它保存的记录根据键排序，默认是按键值的升序排序，也可以指定排序的比较器，当用 Iterator 遍历 TreeMap 时，得到的记录是排过序的。
+
+> 在使用 TreeMap 时，key 必须实现 Comparable 接口或者在构造 TreeMap 传入自定义的Comparator，否则会在运行时抛出 java.lang.ClassCastException 类型的异常。
