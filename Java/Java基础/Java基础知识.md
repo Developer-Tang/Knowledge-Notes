@@ -5,7 +5,7 @@
 | **byte**    | 1      | 0              | Byte      |
 | **char**    | 2      | '/uoooo'(null) | Character |
 | **short**   | 2      | 0              | Short     |
-| **int**     | 4      | 0              | Interger  |
+| **int**     | 4      | 0              | Integer   |
 | **long**    | 8      | 0L             | Long      |
 | **float**   | 4      | 0.0F           | Float     |
 | **double**  | 8      | 0.0D           | Double    |
@@ -55,6 +55,20 @@
 > final修饰的方法：不可被重写
 
 > final修饰的变量：只能进行一次赋值，赋值后不可以修改指向（内存地址），即基本数据类型不可修改值，引用类型不能改变引用地址，但可以修改引用地址内的值
+
+
+
+## String类
+
+> final修饰的类，不可被继承
+
+### String与StringBuffer、StringBuilder的区别
+
+> String的值是不可变的，每次对String的操作都会生成新的String对象
+
+> StringBuffer是可变类，和线程安全的字符串操作类，任何对它指向的字符串的操作都不会产生新的对象。每个StringBuffer对象都有一定的缓冲区容量，当字符串大小没有超过容量时，不会分配新的容量，当字符串大小超过容量时，会自动增加容量 
+
+>  StringBuilder相较于StringBuffer有速度优势，所以多数情况下建议使用StringBuilder类。然而在应用程序要求线程安全的情况下，则必须使用StringBuffer类
 
 
 
@@ -234,6 +248,87 @@
 
 ### TreeMap
 
-> TreeMap 实现 SortedMap 接口，能够把它保存的记录根据键排序，默认是按键值的升序排序，也可以指定排序的比较器，当用 Iterator 遍历 TreeMap 时，得到的记录是排过序的。
+> TreeMap实现SortedMap接口，能够把它保存的记录根据键排序，默认是按键值的升序排序，也可以指定排序的比较器，当用Iterator遍历TreeMap时，得到的记录是排过序的。
 
-> 在使用 TreeMap 时，key 必须实现 Comparable 接口或者在构造 TreeMap 传入自定义的Comparator，否则会在运行时抛出 java.lang.ClassCastException 类型的异常。
+> 在使用TreeMap时，key必须实现Comparable接口或者在构造TreeMap传入自定义的Comparator，否则会在运行时抛出 java.lang.ClassCastException 类型的异常。
+
+> 方式一：key实现Comparable 接口，例：按优先级升序排序
+
+```java
+public class Test02 implements Comparable<Test02> {
+    private final Integer level;
+
+    public Test02(Integer level) {
+        this.level = level;
+    }
+
+    @Override
+    public String toString() {
+        return "Test02{" +
+                "level=" + level +
+                '}';
+    }
+
+    public static void main(String[] args) {
+        TreeMap<Test02, Object> resultMap = new TreeMap<>();
+
+        resultMap.put(new Test02(3), 3);
+        resultMap.put(new Test02(1), 1);
+        resultMap.put(new Test02(4), 4);
+        resultMap.put(new Test02(5), 5);
+        resultMap.put(new Test02(2), 2);
+
+        resultMap.forEach((k, v) -> {
+            System.out.printf("Key：'%S'，Value：'%s'\n", k, v);
+        });
+    }
+
+    @Override
+    public int compareTo(Test02 o) {
+        return Integer.compare(this.level, o.level);
+    }
+}
+// 输出
+// Key：'TEST02{LEVEL=1}'，Value：'1'
+// Key：'TEST02{LEVEL=2}'，Value：'2'
+// Key：'TEST02{LEVEL=3}'，Value：'3'
+// Key：'TEST02{LEVEL=4}'，Value：'4'
+// Key：'TEST02{LEVEL=5}'，Value：'5'
+```
+
+> 方式二：传入自定义Comparator实现类，例：按字符串长度升序排序
+
+```java
+public class Test02 {
+    public static void main(String[] args) {
+        TreeMap<String, Object> resultMap = new TreeMap<>(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return Integer.compare(o1.length(), o2.length());
+            }
+        });
+
+        resultMap.put("123456", 123456);
+        resultMap.put("123", 123);
+        resultMap.put("12345678", 12345678);
+        resultMap.put("1234", 1234);
+        resultMap.put("123456789", 123456789);
+
+        resultMap.forEach((k, v) -> {
+            System.out.printf("Key：'%S'，Value：'%s'\n", k, v);
+        });
+    }
+}
+// 输出：
+// Key：'123'，Value：'123'
+// Key：'1234'，Value：'1234'
+// Key：'123456'，Value：'123456'
+// Key：'12345678'，Value：'12345678'
+// Key：'123456789'，Value：'123456789'
+
+```
+
+### LinkHashMap
+
+> LinkedHashMap是HashMap的一个子类，保存了记录的插入顺序，在用Iterator遍历
+> LinkedHashMap时，先得到的记录肯定是先插入的，也可以在构造时带参数，按照访问次序排序。
