@@ -176,3 +176,7 @@ scheduledThreadPool.scheduleAtFixedRate(newRunnable(){
 > - **异常结束：**线程抛出一个未捕获的 Exception 或 Error
 > - **调用stop：**直接调用该线程的 stop()方法来结束该线程—该方法通常容易导致死锁，不推荐使用
 
+### 生命周期流程
+
+![](JUC与多线程/Java线程的生命周期.drawio.svg)
+
