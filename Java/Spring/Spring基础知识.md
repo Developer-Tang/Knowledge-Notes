@@ -1,6 +1,12 @@
 ##  Spring核心组件
 
-![Spring核心组件](Spring基础知识/Spring核心组件.drawio.svg)
+![Spring核心组件](Spring基础知识/Spring核心组件.drawio.svg) 
+
+
+
+## Spring核心
+
+> IOC容器和AOP模块。通过IOC容器管理POJO对象以及他们之间的耦合关系；通过AOP以动态非侵入的方式增强服务。IOC让相互协作的组件保持松散的耦合，而AOP编程允许你把遍布于应用各层的功能分离出来形成可重用的功能组件。
 
 
 
@@ -14,5 +20,7 @@
 
 > Spring启动时读取应用程序提供的Bean配置信息，并在Spring 容器中生成一份相应的Bean配置注册表，然后根据这张注册表实例化Bean，装配好Bean之间的依赖关系，为上层应用提供准备就绪的运行环境。其中Bean缓存池为HashMap实现
 
-![SpringBean调用简图](Spring基础知识/SpringBean调用简图.drawio.svg)
+![SpringBean调用简图](Spring基础知识/SpringBean调用简图.drawio.svg) 
+
+### IOC容器实现
 
