@@ -35,4 +35,7 @@
 
 >  BeanFactory是Spring框架的基础设施，面向Spring本身。ApplicationContext面向使用Spring 框架的开发者，几乎所有的应用场合我们都直接使用ApplicationContext而非底层的BeanFactory
 
+![BeanFactory类继承关系](Spring基础知识/BeanFactory类继承关系.drawio.svg) 
+
 #### BeanDefinitionRegistry注册表
+
