@@ -68,3 +68,22 @@
 #### 依赖日志框框
 
 > 在初始化BeanFactory时，必须为其提供一种日志框架，比如使用Log4J， 即在类路径下提供Log4J配置文件，这样启动Spring容器才不会报错
+
+### ApplicationContext
+
+> ApplicationContext由BeanFactory派 生 而 来 ， 提供了更多面向实际应用的功能 。ApplicationContext继承了HierarchicalBeanFactory和ListableBeanFactory接口，在此基础上，还通过多个其他的接口扩展了BeanFactory的功能：
+
+![](Spring基础知识/ApplicationContext类继承关系.drawio.svg) 
+
+- **ClassPathXmlApplicationContext：** 默认从类路径加载配置文件
+- **FileSystemXmlApplicationContext：** 默认从文件系统中装载配置文件
+- **ApplicationEventPublisher：** 让容器拥有发布应用上下文事件的功能，包括容器启动事件、关闭事件等。
+- **MessageSource：** 为应用提供i18n国际化消息访问的功能
+- **ResourcePatternResolver ：** 所有ApplicationContext实现类都实现了类似于PathMatchingResourcePatternResolver的功能，可以通过带前缀的Ant风格的资源文件路径装载Spring的配置文件。
+- **LifeCycle：** 该接口是Spring2.0加入的，该接口提供了start()和stop()两个方法，主要用于控制异步处理过程。在具体使用时，该接口同时被ApplicationContext实现及具体Bean实现，ApplicationContext会将start/stop的信息传递给容器中所有实现了该接口的Bean，以达到管理和控制 JMX、任务调度等目的
+- **ConfigurableApplicationContext：** 扩展于 ApplicationContext，它新增加了两个主要的方法：refresh()和close()，让ApplicationContext具有启动、刷新和关闭应用上下文的能力。在应用上下文关闭的情况下调用refresh()即可启动应用上下文，在已经启动的状态下，调用refresh()则清除缓存并重新装载配置信息，而调用close()则可关闭应用上下文
+
+### WebApplication
+
+> WebApplicationContext是专门为Web应用准备的，它允许从相对于Web根目录的路径中装载配置文件完成初始化工作。从WebApplicationContext中可以获得ServletContext的引用，整个Web应用上下文对象将作为属性放置到ServletContext中，以便Web应用环境可以访问Spring应用上下文。
+
