@@ -1,14 +1,10 @@
-##  Spring核心组件
+## Spring核心组件
 
-![Spring核心组件](Spring基础知识/Spring核心组件.drawio.svg) 
-
-
+![Spring核心组件](Spring基础知识/Spring核心组件.drawio.svg)
 
 ## Spring核心
 
 > IOC容器和AOP模块。通过IOC容器管理POJO对象以及他们之间的耦合关系；通过AOP以动态非侵入的方式增强服务。IOC让相互协作的组件保持松散的耦合，而AOP编程允许你把遍布于应用各层的功能分离出来形成可重用的功能组件。
-
-
 
 ## SpringIOC原理
 
@@ -20,7 +16,7 @@
 
 > Spring启动时读取应用程序提供的Bean配置信息，并在Spring 容器中生成一份相应的Bean配置注册表，然后根据这张注册表实例化Bean，装配好Bean之间的依赖关系，为上层应用提供准备就绪的运行环境。其中Bean缓存池为HashMap实现
 
-![SpringBean调用简图](Spring基础知识/SpringBean调用简图.drawio.svg) 
+![SpringBean调用简图](Spring基础知识/SpringBean调用简图.drawio.svg)
 
 ### IOC容器实现
 
@@ -28,14 +24,16 @@
 
 | 容器                              | 描述                                                         |
 | --------------------------------- | ------------------------------------------------------------ |
-| **Spring BeanFactory容器**        | 最简单的容器，给DI提供了基本支持，它用 org.springframework.beans.factory.BeanFactory 接口来定义。BeanFactory 或者相关的接口，如 BeanFactoryAware，InitializingBean，DisposableBean，在 Spring 中仍然存在具有大量的与 Spring 整合的第三方框架的反向兼容性的目的 |
-| **Spring ApplicationContext容器** | 该容器添加了更多的企业特定的功能，例如从一个属性文件中解析文本信息的能力，发布应用程序事件给感兴趣的事件监听器的能力。该容器是由 org.springframework.context.ApplicationContext 接口定义 |
+| **Spring
+BeanFactory容器**        | 最简单的容器，给DI提供了基本支持，它用 org.springframework.beans.factory.BeanFactory 接口来定义。BeanFactory 或者相关的接口，如 BeanFactoryAware，InitializingBean，DisposableBean，在 Spring 中仍然存在具有大量的与 Spring 整合的第三方框架的反向兼容性的目的 |
+| **Spring
+ApplicationContext容器** | 该容器添加了更多的企业特定的功能，例如从一个属性文件中解析文本信息的能力，发布应用程序事件给感兴趣的事件监听器的能力。该容器是由 org.springframework.context.ApplicationContext 接口定义 |
 
 ### BeanFactory
 
->  BeanFactory是Spring框架的基础设施，面向Spring本身。ApplicationContext面向使用Spring 框架的开发者，几乎所有的应用场合我们都直接使用ApplicationContext而非底层的BeanFactory
+> BeanFactory是Spring框架的基础设施，面向Spring本身。ApplicationContext面向使用Spring 框架的开发者，几乎所有的应用场合我们都直接使用ApplicationContext而非底层的BeanFactory
 
-![BeanFactory类继承关系](Spring基础知识/BeanFactory类继承关系.drawio.svg) 
+![BeanFactory类继承关系](Spring基础知识/BeanFactory类继承关系.drawio.svg)
 
 #### BeanDefinitionRegistry注册表
 
@@ -47,7 +45,7 @@
 
 #### ListableBeanFactory
 
->该接口定义了访问容器中Bean基本信息的若干方法，如查看Bean的个数、获取某一类型Bean的配置名、查看容器中是否包括某一Bean等方法
+> 该接口定义了访问容器中Bean基本信息的若干方法，如查看Bean的个数、获取某一类型Bean的配置名、查看容器中是否包括某一Bean等方法
 
 #### HierarchicalBeanFactory父子级联
 
@@ -55,11 +53,11 @@
 
 #### ConfigurableBeanFactory
 
->是一个重要的接口，增强了IOC容器的可定制性，它定义了设置类装载器、属性编辑器、容器初始化后置处理器等方法
+> 是一个重要的接口，增强了IOC容器的可定制性，它定义了设置类装载器、属性编辑器、容器初始化后置处理器等方法
 
 #### AutowireCapableBeanFactory自动装配
 
->定义了将容器中的Bean按某种规则（如按名字匹配、按类型匹配等）进行自动装配的方法
+> 定义了将容器中的Bean按某种规则（如按名字匹配、按类型匹配等）进行自动装配的方法
 
 #### SingletonBeanRegistry运行期间注册单例Bean
 
@@ -73,15 +71,20 @@
 
 > ApplicationContext由BeanFactory派 生 而 来 ， 提供了更多面向实际应用的功能 。ApplicationContext继承了HierarchicalBeanFactory和ListableBeanFactory接口，在此基础上，还通过多个其他的接口扩展了BeanFactory的功能：
 
-![](Spring基础知识/ApplicationContext类继承关系.drawio.svg) 
+![](Spring基础知识/ApplicationContext类继承关系.drawio.svg)
 
 - **ClassPathXmlApplicationContext：** 默认从类路径加载配置文件
 - **FileSystemXmlApplicationContext：** 默认从文件系统中装载配置文件
 - **ApplicationEventPublisher：** 让容器拥有发布应用上下文事件的功能，包括容器启动事件、关闭事件等。
 - **MessageSource：** 为应用提供i18n国际化消息访问的功能
-- **ResourcePatternResolver ：** 所有ApplicationContext实现类都实现了类似于PathMatchingResourcePatternResolver的功能，可以通过带前缀的Ant风格的资源文件路径装载Spring的配置文件。
-- **LifeCycle：** 该接口是Spring2.0加入的，该接口提供了start()和stop()两个方法，主要用于控制异步处理过程。在具体使用时，该接口同时被ApplicationContext实现及具体Bean实现，ApplicationContext会将start/stop的信息传递给容器中所有实现了该接口的Bean，以达到管理和控制 JMX、任务调度等目的
-- **ConfigurableApplicationContext：** 扩展于 ApplicationContext，它新增加了两个主要的方法：refresh()和close()，让ApplicationContext具有启动、刷新和关闭应用上下文的能力。在应用上下文关闭的情况下调用refresh()即可启动应用上下文，在已经启动的状态下，调用refresh()则清除缓存并重新装载配置信息，而调用close()则可关闭应用上下文
+- **ResourcePatternResolver ：**
+  所有ApplicationContext实现类都实现了类似于PathMatchingResourcePatternResolver的功能，可以通过带前缀的Ant风格的资源文件路径装载Spring的配置文件。
+- **LifeCycle：** 该接口是Spring2.0加入的，该接口提供了start()和stop()
+  两个方法，主要用于控制异步处理过程。在具体使用时，该接口同时被ApplicationContext实现及具体Bean实现，ApplicationContext会将start/stop的信息传递给容器中所有实现了该接口的Bean，以达到管理和控制
+  JMX、任务调度等目的
+- **ConfigurableApplicationContext：** 扩展于 ApplicationContext，它新增加了两个主要的方法：refresh()和close()
+  ，让ApplicationContext具有启动、刷新和关闭应用上下文的能力。在应用上下文关闭的情况下调用refresh()即可启动应用上下文，在已经启动的状态下，调用refresh()则清除缓存并重新装载配置信息，而调用close()
+  则可关闭应用上下文
 
 ### WebApplication
 
