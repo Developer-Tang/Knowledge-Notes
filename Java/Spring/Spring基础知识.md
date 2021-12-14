@@ -24,50 +24,51 @@
 
 | 容器                              | 描述                                                         |
 | --------------------------------- | ------------------------------------------------------------ |
-| **Spring
-BeanFactory容器**        | 最简单的容器，给DI提供了基本支持，它用 org.springframework.beans.factory.BeanFactory 接口来定义。BeanFactory 或者相关的接口，如 BeanFactoryAware，InitializingBean，DisposableBean，在 Spring 中仍然存在具有大量的与 Spring 整合的第三方框架的反向兼容性的目的 |
-| **Spring
-ApplicationContext容器** | 该容器添加了更多的企业特定的功能，例如从一个属性文件中解析文本信息的能力，发布应用程序事件给感兴趣的事件监听器的能力。该容器是由 org.springframework.context.ApplicationContext 接口定义 |
+| **
+SpringBeanFactory容器** |最简单的容器，给DI提供了基本支持，它用 org.springframework.beans.factory.BeanFactory 接口来定义。BeanFactory 或者相关的接口，如 BeanFactoryAware，InitializingBean，DisposableBean，在 Spring 中仍然存在具有大量的与 Spring 整合的第三方框架的反向兼容性的目的|
+| **
+SpringApplicationContext容器** |该容器添加了更多的企业特定的功能，例如从一个属性文件中解析文本信息的能力，发布应用程序事件给感兴趣的事件监听器的能力。该容器是由 org.springframework.context.ApplicationContext 接口定义|
 
-### BeanFactory
+### BeanFactory结构
 
 > BeanFactory是Spring框架的基础设施，面向Spring本身。ApplicationContext面向使用Spring 框架的开发者，几乎所有的应用场合我们都直接使用ApplicationContext而非底层的BeanFactory
 
 ![BeanFactory类继承关系](Spring基础知识/BeanFactory类继承关系.drawio.svg)
 
-#### BeanDefinitionRegistry注册表
+- **BeanDefinitionRegistry注册表**
 
-> Spring配置文件中每一个节点元素在Spring容器里都通过一个BeanDefinition对象表示，它描述了Bean的配置信息。而BeanDefinitionRegistry接口提供了向容器手工注册BeanDefinition对象的方法
+  > Spring配置文件中每一个节点元素在Spring容器里都通过一个BeanDefinition对象表示，它描述了Bean的配置信息。而BeanDefinitionRegistry接口提供了向容器手工注册BeanDefinition对象的方法
 
-#### BeanFactory顶层接口
 
-> 位于类结构树的顶端 ，它最主要的方法就是getBean(String beanName)，该方法从容器中返回特定名称的Bean，BeanFactory的功能通过其他的接口得到不断扩展
+- **BeanFactory顶层接口**
 
-#### ListableBeanFactory
+  > 位于类结构树的顶端 ，它最主要的方法就是getBean(String beanName)，该方法从容器中返回特定名称的Bean，BeanFactory的功能通过其他的接口得到不断扩展
 
-> 该接口定义了访问容器中Bean基本信息的若干方法，如查看Bean的个数、获取某一类型Bean的配置名、查看容器中是否包括某一Bean等方法
+- **ListableBeanFactory**
 
-#### HierarchicalBeanFactory父子级联
+  > 该接口定义了访问容器中Bean基本信息的若干方法，如查看Bean的个数、获取某一类型Bean的配置名、查看容器中是否包括某一Bean等方法
 
-> 父子级联IOC容器的接口，子容器可以通过接口方法访问父容器； 通过HierarchicalBeanFactory接口， Spring的IOC容器可以建立父子层级关联的容器体系，子容器可以访问父容器中的Bean，但父容器不能访问子容器的Bean。Spring使用父子容器实现了很多功能，比如在SpringMVC中，展现层Bean位于一个子容器中，而业务层和持久层的Bean位于父容器中。这样，展现层Bean就可以引用业务层和持久层的Bean，而业务层和持久层的Bean则看不到展现层的Bean
+- **HierarchicalBeanFactory父子级联**
 
-#### ConfigurableBeanFactory
+  > 父子级联IOC容器的接口，子容器可以通过接口方法访问父容器； 通过HierarchicalBeanFactory接口， Spring的IOC容器可以建立父子层级关联的容器体系，子容器可以访问父容器中的Bean，但父容器不能访问子容器的Bean。Spring使用父子容器实现了很多功能，比如在SpringMVC中，展现层Bean位于一个子容器中，而业务层和持久层的Bean位于父容器中。这样，展现层Bean就可以引用业务层和持久层的Bean，而业务层和持久层的Bean则看不到展现层的Bean
 
-> 是一个重要的接口，增强了IOC容器的可定制性，它定义了设置类装载器、属性编辑器、容器初始化后置处理器等方法
+- **ConfigurableBeanFactory**
 
-#### AutowireCapableBeanFactory自动装配
+  > 是一个重要的接口，增强了IOC容器的可定制性，它定义了设置类装载器、属性编辑器、容器初始化后置处理器等方法
 
-> 定义了将容器中的Bean按某种规则（如按名字匹配、按类型匹配等）进行自动装配的方法
+- **AutowireCapableBeanFactory自动装配**
 
-#### SingletonBeanRegistry运行期间注册单例Bean
+  > 定义了将容器中的Bean按某种规则（如按名字匹配、按类型匹配等）进行自动装配的方法
 
-> 定义了允许在运行期间向容器注册单实例Bean的方法；对于单实例（ singleton）的Bean来说，BeanFactory会缓存Bean实例，所以第二次使用getBean()获取Bean时将直接从IOC容器的缓存中获取Bean实例。Spring在DefaultSingletonBeanRegistry类中提供了一个用于缓存单实例 Bean 的缓存器，它是一个用HashMap实现的缓存器，单实例的Bean以beanName为键保存在这个HashMap中
+- **SingletonBeanRegistry运行期间注册单例Bean**
 
-#### 依赖日志框框
+  > 定义了允许在运行期间向容器注册单实例Bean的方法；对于单实例（ singleton）的Bean来说，BeanFactory会缓存Bean实例，所以第二次使用getBean()获取Bean时将直接从IOC容器的缓存中获取Bean实例。Spring在DefaultSingletonBeanRegistry类中提供了一个用于缓存单实例 Bean 的缓存器，它是一个用HashMap实现的缓存器，单实例的Bean以beanName为键保存在这个HashMap中
 
-> 在初始化BeanFactory时，必须为其提供一种日志框架，比如使用Log4J， 即在类路径下提供Log4J配置文件，这样启动Spring容器才不会报错
+- **依赖日志框框**
 
-### ApplicationContext
+  > 在初始化BeanFactory时，必须为其提供一种日志框架，比如使用Log4J， 即在类路径下提供Log4J配置文件，这样启动Spring容器才不会报错
+
+### ApplicationContext结构
 
 > ApplicationContext由BeanFactory派 生 而 来 ， 提供了更多面向实际应用的功能 。ApplicationContext继承了HierarchicalBeanFactory和ListableBeanFactory接口，在此基础上，还通过多个其他的接口扩展了BeanFactory的功能：
 
@@ -80,13 +81,21 @@ ApplicationContext容器** | 该容器添加了更多的企业特定的功能，
 - **ResourcePatternResolver ：**
   所有ApplicationContext实现类都实现了类似于PathMatchingResourcePatternResolver的功能，可以通过带前缀的Ant风格的资源文件路径装载Spring的配置文件。
 - **LifeCycle：** 该接口是Spring2.0加入的，该接口提供了start()和stop()
-  两个方法，主要用于控制异步处理过程。在具体使用时，该接口同时被ApplicationContext实现及具体Bean实现，ApplicationContext会将start/stop的信息传递给容器中所有实现了该接口的Bean，以达到管理和控制
-  JMX、任务调度等目的
+  两个方法，主要用于控制异步处理过程。在具体使用时，该接口同时被ApplicationContext实现及具体Bean实现，ApplicationContext会将start/stop的信息传递给容器中所有实现了该接口的Bean，以达到管理和控制JMX、任务调度等目的
 - **ConfigurableApplicationContext：** 扩展于 ApplicationContext，它新增加了两个主要的方法：refresh()和close()
   ，让ApplicationContext具有启动、刷新和关闭应用上下文的能力。在应用上下文关闭的情况下调用refresh()即可启动应用上下文，在已经启动的状态下，调用refresh()则清除缓存并重新装载配置信息，而调用close()
   则可关闭应用上下文
 
-### WebApplication
+### BeanFactroy与ApplicationContext的区别
 
-> WebApplicationContext是专门为Web应用准备的，它允许从相对于Web根目录的路径中装载配置文件完成初始化工作。从WebApplicationContext中可以获得ServletContext的引用，整个Web应用上下文对象将作为属性放置到ServletContext中，以便Web应用环境可以访问Spring应用上下文。
+- **对Bean的加载方式不同**
 
+  > BeanFactory采用懒加载机制，只有调用getBean()时才进行对象的实例化
+
+  > ApplicationContext采用预加载机制，应用启动后就实例化所有Bean，
+
+- **特性不同**
+
+  > BeanFactory接口只提供了IOC/DI的支持，常用的API是XMLBeanFactory
+
+  > ApplicationContext继承自BeanFactory，功能更加广泛
