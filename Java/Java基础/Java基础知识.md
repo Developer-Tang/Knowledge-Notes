@@ -220,6 +220,7 @@
 
 #### Java8中的ConcurrentHashMap
 
+[//]: # ( TODO:错误理解需要调整 )
 > Java8中ConcurrentHashMap抛弃了Segment分段锁，采用了粒度更细的加锁方式，使用Synchronized锁数组中的根节点使之支持更高的并发量
 
 ![](Java基础知识/Java8ConcurrentHashMap结构.drawio.svg)
