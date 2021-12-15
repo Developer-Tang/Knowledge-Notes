@@ -1,11 +1,3 @@
 - [📖**首页**](/README)
-- **Java**
-    - [Java简介.md](/Java/README.md)
-    - **Java基础**
-        - [安装JDK.md](/Java/Java基础/安装JDK.md)
-        - [Java基础知识.md](/Java/Java基础/Java基础知识.md)
-        - [JUC与多线程.md](/Java/Java基础/JUC与多线程.md)
-    - **JVM**
-        - [JVM介绍.md](/Java/JVM/JVM介绍.md)
-    - **Spring**
-        - [Spring基础知识.md](/Java/Spring/Spring基础知识.md)
+- [Java](/Java/README.md)
+- [面试](/面试/README.md)
