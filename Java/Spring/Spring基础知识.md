@@ -97,3 +97,17 @@
   > BeanFactory接口只提供了IOC/DI的支持，常用的API是XMLBeanFactory
 
   > ApplicationContext继承自BeanFactory，功能更加广泛
+
+### Bean的生命周期
+
+![Bean的生命周期.drawio.svg](Spring基础知识/Bean的生命周期.drawio.svg) 
+
+### Bean的作用域
+
+- **singleton：**在SpringIOC容器中只有一个
+- **prototype：**一个Bean存在多个实例
+- **request：**每次Http请求都创建一个Bean该作用域仅在基于web的SpringApplicationContext情形下有效。
+- **session**：在一个HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。
+- **global-session**：在一个全局的HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。
+
+> SpringIOC容器默认采用singleton(单例)创建Bean，使用prototype因为频繁创建和销毁Bean会造成很大的性能消耗
