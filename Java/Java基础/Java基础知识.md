@@ -14,8 +14,8 @@
 ### 数值类型的取值范围
 
 > 整数的取值范围计算，N：字节数
->
-> ![image-20211026120533655](Java基础知识/image-20211026120533655.png)
+
+![image-20211026120533655](Java基础知识/image-20211026120533655.png)
 
 ### 数值类型转换
 
@@ -59,6 +59,14 @@
 > StringBuffer是可变类，和线程安全的字符串操作类，任何对它指向的字符串的操作都不会产生新的对象。每个StringBuffer对象都有一定的缓冲区容量，当字符串大小没有超过容量时，不会分配新的容量，当字符串大小超过容量时，会自动增加容量
 
 > StringBuilder相较于StringBuffer有速度优势，所以多数情况下建议使用StringBuilder类。然而在应用程序要求线程安全的情况下，则必须使用StringBuffer类
+
+## static关键字的特点
+
+> static修饰的类只能时内部类，且静态内部类只能访问外部类的静态变量及静态方法
+
+> static修饰的方法，可以直接通过类名调用，不需要实例化对象调用，且不能方法实例成员变量
+
+> static修饰的变量，全局只有一个
 
 ## 重载与重写
 
@@ -107,13 +115,21 @@
 - **Error：** Error 类是指 java 运行时系统的内部错误和资源耗尽错误。应用程序不会抛出该类对象。如果出现了这样的错误，除了告知用户，剩下的就是尽力使程序安全的终止。
 
 - **Exception：** 又有两个分支，一个是运行时异常RuntimeException ，一个是检查异常CheckedException
-  - **RuntimeException：** RuntimeException是那些可能在 Java 虚拟机正常运行期间抛出的异常的超类
-  - **CheckedException：** 一般是外部错误，这种异常都发生在编译阶段，Java 编译器会强制程序去捕获此类异常，即会出现要求你把这段可能出现异常的程序进行 try catch
+    - **RuntimeException：** RuntimeException是那些可能在 Java 虚拟机正常运行期间抛出的异常的超类
+    - **CheckedException：** 一般是外部错误，这种异常都发生在编译阶段，Java 编译器会强制程序去捕获此类异常，即会出现要求你把这段可能出现异常的程序进行 try catch
 
 ## throw与throws的区别
 
 - **throw：** 在函数体内使用，可以抛出指定类型的异常，执行带throw会终止其功能将问题抛给调用者
 - **throws：** 在函数声明上，可以指定多个可能会发生的异常，并不一定发生该异常
+
+## try-catch-finally
+
+> try-catch只能捕获Exception不嫩捕获Error
+>
+> try-catch的catch异常应从子类异常开始捕获，再是父类异常
+>
+> try-catch-finally中无论是否发生异常都会执行到finally代码块中的代码
 
 ## List集合
 
@@ -310,13 +326,164 @@ public class Test02 {
 
 ```
 
-### LinkHashMap
+### LinkedHashMap
 
 > LinkedHashMap是HashMap的一个子类，通过HashMap+双向链表的方式，保存了记录的插入顺序，在用Iterator遍历LinkedHashMap时，先得到的记录肯定是先插入的，也可以在构造时带参数，按照访问次序排序。
 
-## HashTable
+### HashTable
 
-HashTable是线程安全的类，但由于在增改删时会对全表加锁，所以其性能很低，在项目中遇到需要用到线程安全的Key-Value结构存储，一般都会采用ConcureentHashMap
+> HashTable是线程安全的类，但由于在增改删时会对全表加锁，所以其性能很低，在项目中遇到需要用到线程安全的Key-Value结构存储，一般都会采用ConcureentHashMap
+
+### Map.put()的过程源码分析
+
+> 注释来源于原注释插件翻译后的译文
+
+- **`V put(K key, V value)`** 
+  
+  ```java
+  /**
+   * 将指定值与此映射中的指定键相关联.
+   * 如果映射先前包含键的映射，则旧的值被替换
+   *
+   * @param key 与指定值相关联的键
+   * @param value 要与指定键关联的值
+   * @return 与 key 关联的先前值，如果没有 key 的映射，则为 null。
+   *         （空返回也可以指示映射先前将空与键关联。）
+   */
+  public V put(K key, V value) {
+      return putVal(hash(key), key, value, false, true);
+  }
+  ```
+  
+- **`int hash(Object key)`** 
+
+  ```java
+  /**
+   * 计算 key.hashCode() 并将散列的较高位（异或）传播到较低位。
+   * 由于该表使用二次幂掩码，因此仅在当前掩码上方位变化的散列集将始终发生冲突。 
+   * （众所周知的例子是在小表中保存连续整数的浮点键集。）
+   * 所以我们应用一种变换来向下传播较高位的影响。位扩展的速度、效用和质量之间存在权衡。
+   * 因为许多常见的散列集已经合理分布（因此不会从传播中受益），并且因为我们使用树来处理 bin 中的大量冲突，
+   * 所以我们只是以最便宜的方式对一些移位的位进行异或以减少系统损失，
+   * 以及合并最高位的影响，否则由于表边界而永远不会在索引计算中使用。
+   */
+  static final int hash(Object key) {
+      int h;
+      return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+  }
+  ```
+
+- **`V putVal(int hash, K key, V value, boolean onlyIfAbsent,boolean evict)`** 
+
+  ```java
+  /**
+   * 实现 Map.put 和相关方法
+   *
+   * @param hash key的散列
+   * @param key key
+   * @param value 要put的值
+   * @param onlyIfAbsent 如果是true，则不覆盖当前的值
+   * @param evict 如果为 false，则表处于创建模式
+   * @return 以前的值，如果没有，则为 null
+   */
+  final V putVal(int hash, K key, V value, boolean onlyIfAbsent,boolean evict) {
+      Node<K,V>[] tab;
+      Node<K,V> p;
+      int n, i;
+      // table来自于成员变量 Node<K,V>[] table，即Map中的数组结构
+      if ((tab = table) == null || (n = tab.length) == 0)
+          // table为空时扩容
+          n = (tab = resize()).length;
+      if ((p = tab[i = (n - 1) & hash]) == null)
+          // 判断如果定位到的数组位为null时创建一个新的节点
+          tab[i] = newNode(hash, key, value, null);
+      else {
+          // 数组位存在数据时的处理
+          Node<K,V> e;
+          K k;
+          if (p.hash == hash && ((k = p.key) == key || (key != null && key.equals(k))))
+            	// 将key与数组元素进行比较。key的hash一致，内存地址一致，或key不为空equals比较也一致，说明此时是更新数据
+              e = p;
+          else if (p instanceof TreeNode)
+            	// 如果是树形节点调用putTreeVal()，新键插入会返回null
+              e = ((TreeNode<K,V>)p). putTreeVal(this, tab, hash, key, value);
+          else {
+              // 既不是数组又不是树形结构，那只能是链表了
+              for (int binCount = 0; ; ++binCount) {  
+                  if ((e = p.next) == null) {
+                      // 下一个链表节点元素如果是空就新增节点
+                      p.next = newNode(hash, key, value, null);
+                      // TREEIFY_THRESHOLD 树形化的阈值 8
+                      if (binCount >= TREEIFY_THRESHOLD - 1) // -1 是加上了数组中的根节点元素
+                          // 这里判断链长度达到了8的阈值，将链表转化为红黑树并跳出循环
+                          treeifyBin(tab, hash);
+                      break;
+                  }  
+                  if (e.hash == hash &&((k = e.key) == key || (key != null && key.equals(k))))
+                      // 节点的hash与链表节点元素hash一致，或键的内存地址一致与键equals比较也一致，说明此时是更新数据
+                      break;
+                  // 遍历下一个节点
+                  p = e;
+              }
+          }
+          if (e != null) { 
+              // 键的旧值
+              V oldValue = e.value; 
+              if (!onlyIfAbsent || oldValue == null)
+                  // 可以覆盖或旧值为空，赋值新值
+                  e.value = value;
+              afterNodeAccess(e); // 将更新过的节点移到链表的最后
+              return oldValue;
+          }
+      }
+      // 只有发生了新增操作时才会执行到这里  
+      ++modCount; // 这里记录了map元素变动的次数，用于遍历时比较，判断是否存在了并发操作，比较时不一致会抛出并发异常
+      if (++size > threshold) 
+        	// 集合当前元素数量大于阈值触发扩容  
+          resize();
+      afterNodeInsertion(evict);// 插入节点后的操作，方法实现了LRU淘汰机制，但默认不会生效
+      return null;
+  }
+  ```
+  
+- **`Node<K,V>[] resize()`** 
+
+  > resize太多了就不粘了，大体的步骤：
+  >
+  > - 计算新的容量、阈值
+  > - 创建一个新的Node数组
+  > - 遍历旧的数组结构
+  > - 当
+
+- **` void afterNodeAccess(Node<K,V> e)`** 
+
+  ```java
+  void afterNodeAccess(Node<K,V> e) { // move node to last
+      LinkedHashMap.Entry<K,V> last;
+      if (accessOrder && (last = tail) != e) {
+          LinkedHashMap.Entry<K,V> p =(LinkedHashMap.Entry<K,V>)e, b = p.before, a = p.after;
+          p.after = null;
+          if (b == null)
+              head = a;
+          else
+              b.after = a;
+          if (a != null)
+              a.before = b;
+          else
+              last = b;
+          if (last == null)
+              head = p;
+          else {
+              p.before = last;
+              last.after = p;
+          }
+          tail = p;
+          ++modCount;
+      }java
+  }
+  ```
+
+  
 
 ## 类加载器
 
