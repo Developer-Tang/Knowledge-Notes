@@ -106,6 +106,15 @@
   }
   ```
 
+## 为什么要重写equals和hashCode
+> 重写equals是因为equals的默认实现是==，比较的是地址值，而很多情况下需要根据具体的内容比较去区分对象是不是同一个，此时就需要重写equals
+> 
+> 重写hashCode是因为Java中Set与Map都是先通过hash值去判断两个对象是不是同一个，而默认的hashCode是通过地址值计算的，两个new创建的对象地址一定是不一样的，此时Set和Map就会认为两个对象不相等
+> 
+> 注意点：
+> - equals相等时hashCode值也要相等
+> - hashCode相等时，equals不一定相等
+
 ## this与super的指向
 
 - **this：** this指对象本身，this.xx指向对象的成员变量，this.xx()指向对象的成员方法，this()指向本类的空参/含参构造器
@@ -149,10 +158,9 @@
 - **AppClassLoader：** 主要负责加载应用程序的主函数类
 
 ### 双亲委派机制
-
-> 防止重复加载同一个.class。通过委托去向上面问一问，加载过了，就不用再加载一遍。保证数据安全。
-
-> 保证核心class对象不能被篡改。保证了Class执行安全。
+> 作用：
+> - 防止重复加载同一个class对象。 
+> - 保证核心class对象不能被篡改。保证了Class执行安全。
 
 ![](Java基础知识/双亲委派机制.drawio.svg) 
 
