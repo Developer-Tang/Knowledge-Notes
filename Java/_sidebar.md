@@ -1,9 +1,8 @@
 - [**Java简介**](/Java/README.md)
 - **Java基础**
-    - [安装JDK.md](/Java/Java基础/安装JDK.md)
-    - [Java基础知识.md](/Java/Java基础/Java基础知识.md)
-    - [JUC与多线程.md](/Java/Java基础/JUC与多线程.md)
-- **JVM**
-    - [JVM介绍.md](/Java/JVM/JVM介绍.md)
+    - [安装JDK.md](/Java/安装JDK.md)
+    - [Java基础知识.md](/Java/Java基础知识.md)
+    - [Java集合.md](/Java/Java集合.md)
+    - [JUC与多线程.md](/Java/JUC与多线程.md)
 - **Spring**
     - [Spring基础知识.md](/Java/Spring/Spring基础知识.md)
