@@ -348,4 +348,4 @@ public class Test02 {
 
 > 大致流程
 
-![HashMap数据插入原理.svg](/Java集合/HashMap数据插入原理.drawio.svg) 
+![HashMap数据插入原理.svg](Java集合/HashMap数据插入原理.drawio.svg) 
