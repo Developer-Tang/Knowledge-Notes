@@ -136,7 +136,17 @@
 
 - **Exception：** 又有两个分支，一个是运行时异常RuntimeException ，一个是检查异常CheckedException
     - **RuntimeException：** RuntimeException是那些可能在 Java 虚拟机正常运行期间抛出的异常的超类
+      - **NullPointerException：** 空指针引用异常
+      - **ClassCastException ：** 类型强制转换异常
+      - **IllegalArgumentException：** 传递非法参数异常
+      - **IndexOutOfBoundsException：** 下标越界异常
+      - ·····
     - **CheckedException：** 一般是外部错误，这种异常都发生在编译阶段，Java 编译器会强制程序去捕获此类异常，即会出现要求你把这段可能出现异常的程序进行 try catch
+      - **ClassNotFoundException：** 类找不到异常
+      - **IOException：** IO异常
+      - **FileNotFoundException：** 找不到文件异常
+      - **EOFException：** EOF异常
+      - ·····
 
 ## throw与throws的区别
 
