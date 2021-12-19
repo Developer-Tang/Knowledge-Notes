@@ -95,7 +95,7 @@
 
 > Java7中ConcurrentHashMap采用与HashMap相同的**存储格式：数据+链表**，但引入了Segment分段锁的概念，转变成了两层结构，第一次Hash确定所在Segment，第二次Hash确定具体的节点位置
 
-![](Java集合/Java7ConcurrentHashMap原理.drawio.svg) 
+![](Java集合/Java7ConcurrentHashMap原理.drawio.svg)
 
 #### Java8中的ConcurrentHashMap
 
@@ -306,7 +306,7 @@ public class Test02 {
       return null;
   }
   ```
-  
+
 - **`TreeNode<K,V> putTreeVal(HashMap<K,V> map, Node<K,V>[] tab, int h, K k, V v)`**
   > 作用就是获取对应要修改的节点，如果找不到就新增，大体步骤如下：
   >
@@ -318,7 +318,7 @@ public class Test02 {
   > 6. 遍历过程重复3、4、5布
   > 7. 如果在遍历的过程中发现下一个子树节点为NULL时，说明遍历红黑树未找到改key，此时创建一个新的子树节点，赋值至当前为空的这个子树节点
 
-- **`Node<K,V>[] resize()`** 
+- **`Node<K,V>[] resize()`**
 
   > 作用就是为了扩容，大体的步骤如下：
   >
@@ -330,7 +330,7 @@ public class Test02 {
   > - 插入节点
   > - 最终完成扩容
 
-- **`Node<K,V> newNode(int hash, K key, V value, Node<K,V> next)`** 
+- **`Node<K,V> newNode(int hash, K key, V value, Node<K,V> next)`**
 
   > 创建一个新的普通节点，非树形节点
 

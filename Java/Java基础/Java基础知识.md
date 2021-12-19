@@ -107,10 +107,11 @@
   ```
 
 ## 为什么要重写equals和hashCode
+
 > 重写equals是因为equals的默认实现是==，比较的是地址值，而很多情况下需要根据具体的内容比较去区分对象是不是同一个，此时就需要重写equals
-> 
+>
 > 重写hashCode是因为Java中Set与Map都是先通过hash值去判断两个对象是不是同一个，而默认的hashCode是通过地址值计算的，两个new创建的对象地址一定是不一样的，此时Set和Map就会认为两个对象不相等
-> 
+>
 > 注意点：
 > - equals相等时hashCode值也要相等
 > - hashCode相等时，equals不一定相等
@@ -136,17 +137,17 @@
 
 - **Exception：** 又有两个分支，一个是运行时异常RuntimeException ，一个是检查异常CheckedException
     - **RuntimeException：** RuntimeException是那些可能在 Java 虚拟机正常运行期间抛出的异常的超类
-      - **NullPointerException：** 空指针引用异常
-      - **ClassCastException ：** 类型强制转换异常
-      - **IllegalArgumentException：** 传递非法参数异常
-      - **IndexOutOfBoundsException：** 下标越界异常
-      - ·····
+        - **NullPointerException：** 空指针引用异常
+        - **ClassCastException ：** 类型强制转换异常
+        - **IllegalArgumentException：** 传递非法参数异常
+        - **IndexOutOfBoundsException：** 下标越界异常
+        - ·····
     - **CheckedException：** 一般是外部错误，这种异常都发生在编译阶段，Java 编译器会强制程序去捕获此类异常，即会出现要求你把这段可能出现异常的程序进行 try catch
-      - **ClassNotFoundException：** 类找不到异常
-      - **IOException：** IO异常
-      - **FileNotFoundException：** 找不到文件异常
-      - **EOFException：** EOF异常
-      - ·····
+        - **ClassNotFoundException：** 类找不到异常
+        - **IOException：** IO异常
+        - **FileNotFoundException：** 找不到文件异常
+        - **EOFException：** EOF异常
+        - ·····
 
 ## throw与throws的区别
 
@@ -168,8 +169,9 @@
 - **AppClassLoader：** 主要负责加载应用程序的主函数类
 
 ### 双亲委派机制
+
 > 作用：
-> - 防止重复加载同一个class对象。 
+> - 防止重复加载同一个class对象。
 > - 保证核心class对象不能被篡改。保证了Class执行安全。
 
 ![](Java基础知识/双亲委派机制.drawio.svg) 

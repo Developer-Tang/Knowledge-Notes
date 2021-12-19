@@ -36,7 +36,7 @@
 
 > 系统环境变量中新增 **JAVA_HOME** 、**CLASSP_PATH** ，**PATH** 中追加一条记录并置顶
 
->新增 *JAVA_HOME* ：**填刚才的安装路径**
+> 新增 *JAVA_HOME* ：**填刚才的安装路径**
 >
 >新增 *CLASS_PATH* ：`.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar`
 >
