@@ -61,7 +61,33 @@
 
 ## String类
 
-> final修饰的类，不可被继承
+> final修饰的类，不可被继承，底层通过 `char[]` 存储，字符串操作时会返回一个新的String
+>
+
+```java
+public final class String
+        implements java.io.Serializable, Comparable<String>, CharSequence {
+    //...
+    /** The value is used for character storage. */
+    private final char value[];
+
+    //...
+    public String substring(int beginIndex) {
+        //...
+        return (beginIndex == 0) ? this : new String(value, beginIndex, subLen);
+    }
+
+    //...
+    public String replace(char oldChar, char newChar) {
+        if (oldChar != newChar) {
+            /*...*/{
+                return new String(buf, true);
+            }//...
+        }
+        return this;
+    }
+}
+```
 
 ### String与StringBuffer、StringBuilder的区别
 
