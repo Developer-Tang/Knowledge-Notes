@@ -12,7 +12,7 @@
 
 > **数据变动：** 当从ArrayList的中间位置插入或者删除元素时，需要对数组进行复制、移动、代价比较高。
 
-> **总结：** 适合随机查找和遍历，不适合插入和删除
+> **总结：** 适合随机查询，不适合插入和删除
 
 ### Vector
 
@@ -22,7 +22,7 @@
 
 > **扩容倍数：** 2
 
-> **总结：** 线程安全，但访问慢
+> **总结：** 线程安全，但性能差
 
 ### LinkList
 
@@ -30,7 +30,7 @@
 
 > **数据变动：** 插入或删除时只需要对当前元素的前后一个元素的头信息进行修改即可，其他元素不会发生任何变化
 
-> **总结：** 适合数据的动态插入和删除,需要顺序读取不适合随机查找
+> **总结：** 适合数据的动态插入和删除,随机查询需要从头遍历
 
 ## Set集合
 
@@ -60,7 +60,7 @@
 
 #### Java7 HashMap
 
-![](Java集合/Java7HashMap结构.drawio.svg)
+![](Java集合/Java7HashMap结构.drawio.svg) 
 
 > 大方向上，HashMap 里面是一个数组，然后数组中每个元素是一个单向链表。上图中，每个绿色的实体是嵌套类Entry 的实例，Entry 包含四个属性：key, value, hash 值和用于单向链表的next。
 >
@@ -77,7 +77,7 @@
 
 > 根据Java7 HashMap 的介绍，我们知道，查找的时候，根据hash 值我们能够快速定位到数组的具体下标，但是之后的话，需要顺着链表一个个比较下去才能找到我们需要的，时间复杂度取决于链表的长度，为 O(n)。为了降低这部分的开销，在 Java8 中，当链表中的元素超过了 8 个以后，会将链表转换为红黑树，在这些位置进行查找的时候可以降低时间复杂度为 O(logN)。
 
-![](Java集合/Java8HashMap结构.drawio.svg)
+![](Java集合/Java8HashMap结构.drawio.svg) 
 
 > 插入时先进行插入，插入完成再判断是否需要扩容
 
@@ -87,25 +87,21 @@
 >
 > 个人理解可能存在错误观点
 
-![](Java集合/HashMap头插法危害.drawio.svg)
+![](Java集合/HashMap头插法危害.drawio.svg) 
 
 ### ConcurrentHashMap
 
 #### Java7中的ConcurrentHashMap
 
-> Java7中ConcurrentHashMap采用与HashMap相同的**存储格式：数据+链表**，但引入了Segment分段锁的概念，转变成了两层结构，第一次Hash确定所在Segment，第二次Hash确定具体的节点位置
+> Java7中ConcurrentHashMap采用与HashMap相同的 **存储格式：数据+链表** ，但引入了Segment分段锁的概念，转变成了两层结构，第一次Hash确定所在Segment，第二次Hash确定具体的节点位置
 
-![](Java集合/Java7ConcurrentHashMap原理.drawio.svg)
+![](Java集合/Java7ConcurrentHashMap原理.drawio.svg) 
 
 #### Java8中的ConcurrentHashMap
 
-> Java8中ConcurrentHashMap抛弃了Segment分段锁，采用了粒度更细的加锁方式，使用Synchronized锁数组中的根节点使之支持更高的并发量
+> Java8中ConcurrentHashMap抛弃了Segment分段锁，采用了粒度更细的加锁方式，采用CAS+synchronize的实现对节点的锁定，大幅度提升并发性能
 
 ![](Java集合/Java8ConcurrentHashMap结构.drawio.svg)
-
-### HashTable
-
-> HashTable中hash数组默认大小是11，扩容的方式是 old*2+1，继承自Dictionary类，HashTable采用了锁全表的方式来保证线程安全，在性能上比不上ConcurrentHashMap，所以不推荐使用
 
 ### TreeMap
 
@@ -195,7 +191,7 @@ public class Test02 {
 
 ### HashTable
 
-> HashTable是线程安全的类，但由于在增改删时会对全表加锁，所以其性能很低，在项目中遇到需要用到线程安全的Key-Value结构存储，一般都会采用ConcureentHashMap
+> HashTable是线程安全的类，但由于在增改删时会对全表加锁，所以其性能很低，在性能上比不上ConcurrentHashMap，所以不推荐使用。HashTable中hash数组默认大小是11，扩容的方式是 old*2+1，继承自Dictionary类
 
 ## Java1.8版本Map.put()的过程源码分析
 
