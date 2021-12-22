@@ -93,7 +93,7 @@ public final class String
 
 > String的值是不可变的，每次对String的操作都会生成新的String对象
 
-> StringBuffer是可变类，和线程安全的字符串操作类，任何对它指向的字符串的操作都不会产生新的对象。每个StringBuffer对象都有一定的缓冲区容量，当字符串大小没有超过容量时，不会分配新的容量，当字符串大小超过容量时，会自动增加容量
+> StringBuffer是可变类和线程安全的字符串操作类，方法由synchronize关键字修饰，任何对它指向的字符串的操作都不会产生新的对象。每个StringBuffer对象都有一定的缓冲区容量，当字符串大小没有超过容量时，不会分配新的容量，当字符串大小超过容量时，会自动增加容量
 
 > StringBuilder相较于StringBuffer有速度优势，所以多数情况下建议使用StringBuilder类。然而在应用程序要求线程安全的情况下，则必须使用StringBuffer类
 
@@ -187,6 +187,10 @@ public final class String
 > try-catch的catch异常应从子类异常开始捕获，再是父类异常
 >
 > try-catch-finally中无论是否发生异常都会执行到finally代码块中的代码
+
+## 泛型擦除
+
+> 在程序运行期间，所有的泛型信息都会被消除
 
 ## 类加载器
 

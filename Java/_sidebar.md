@@ -3,7 +3,7 @@
     - [安装JDK.md](/Java/Java基础/安装JDK.md)
     - [Java基础知识.md](/Java/Java基础/Java基础知识.md)
     - [Java集合.md](/Java/Java基础/Java集合.md)
-    - [JUC与多线程.md](/Java/Java基础/JUC与多线程.md)
+    - [JUC与多线程.md](/Java/Java基础/多线程.md)
 - **JVM**
     - [JVM内存模型.md](/Java/JVM/JVM内存模型.md)
 - **Spring**
