@@ -19,72 +19,60 @@
     2. 垃圾回收机制
     3. JVM参数调优【低优先级】
 3. Java锁
-    1. CAS
-    2. 公平锁、非公平锁
-    3. 互斥锁、读写锁
-    4. 独享锁、共享锁
-    5. 可重入锁
-    6. 乐观锁、悲观锁
-    7. 分段锁
-    8. 偏向锁、轻量级锁、重量级锁
-    9. 自旋锁
-    10. synchronize
-    11. Lock
-    12. ReadWriteLock
-    13. ReentrantLock
-4. 反射、动态代理
-    1. JDK动态代理
-    2. Cglib代理
-5. Java新特性
-    1. HashMap的结构变化【链接3-3】
+    1. synchronize
+    2. Lock
+    3. ReadWriteLock
+    4. ReentrantLock
+4. Java新特性
+    1. HashMap的结构变化【链接Java集合.md?id=HashMap】
     2. Lambda
     3. Stream
-6. JDBC
+5. JDBC
     1. DriveManage
     2. SqlSessionFactory
     3. SqlSession
     4. c3p0、druid连接池
-7. Mysql
+6. Mysql
     1. sql编写
     2. 索引优化
     3. 存储引擎
-8. Maven
-9. Spring
+7. Maven
+8. Spring
     1. DI
     2. IOC
     3. BeanFactory
     4. ApplicationContext
     5. AOP
     6.
-10. SpringMVC
+9. SpringMVC
     1. mvc模型
     2.
-11. Mybatis
+10. Mybatis
     1. Mapper映射
     2. 一二级缓存
-12. Tomcat
-13. SpringBoot
-14. MybatisPlus
-15. Nginx
-16. Redis
+11. Tomcat
+12. SpringBoot
+13. MybatisPlus
+14. Nginx
+15. Redis
     1. 存储数据结构
     2. 缓存淘汰机制
     3. IO多路复用
     4. 分布式锁实现
-17. RockMQ、RabbitMQ
-18. Dubbo
+16. RockMQ、RabbitMQ
+17. Dubbo
     1. RPC原理
     2. 通讯协议
     3.
-19. Zookeeper
-20. SpringCloud
-21. SpringCloudAlibaba
-22. Kafka
-23. ElasticSearch
-24. Docker
-25. K8S
-26. Jenkins
-27. 数据结构
-28. 算法
-29. 网络通信
-30. Linux
+18. Zookeeper
+19. SpringCloud
+20. SpringCloudAlibaba
+21. Kafka
+22. ElasticSearch
+23. Docker
+24. K8S
+25. Jenkins
+26. 数据结构
+27. 算法
+28. 网络通信
+29. Linux

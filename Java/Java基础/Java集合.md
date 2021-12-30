@@ -4,11 +4,11 @@
 
 > **原理：** 内部由数组实现，允许对元素进行快速的随机访问，但存储空间必须连续。
 
-> **动态扩容：** 当数组大小不满足使用需求时需要重新分配空间，将已有的数组的数据复制到新的存储空间中。
-
 > **初始大小：** 10
 
-> **扩容倍数：** 1.5
+> **扩容倍数：** 1.5 `源码： int newCapacity=oldCapacity+(oldCapacity>>1);`
+
+> **动态扩容：** 当数组大小不满足使用需求时需要重新分配空间，将已有的数组的数据复制到新的存储空间中。 `源码： elementData = Arrays.copyOf(elementData, newCapacity);`
 
 > **数据变动：** 当从ArrayList的中间位置插入或者删除元素时，需要对数组进行复制、移动、代价比较高。
 
@@ -60,7 +60,7 @@
 
 #### Java7 HashMap
 
-![](Java集合/Java7HashMap结构.drawio.svg) 
+![](Java集合/Java7HashMap结构.drawio.svg)
 
 > 大方向上，HashMap 里面是一个数组，然后数组中每个元素是一个单向链表。上图中，每个绿色的实体是嵌套类Entry 的实例，Entry 包含四个属性：key, value, hash 值和用于单向链表的next。
 >
@@ -77,7 +77,7 @@
 
 > 根据Java7 HashMap 的介绍，我们知道，查找的时候，根据hash 值我们能够快速定位到数组的具体下标，但是之后的话，需要顺着链表一个个比较下去才能找到我们需要的，时间复杂度取决于链表的长度，为 O(n)。为了降低这部分的开销，在 Java8 中，当链表中的元素超过了 8 个以后，会将链表转换为红黑树，在这些位置进行查找的时候可以降低时间复杂度为 O(logN)。
 
-![](Java集合/Java8HashMap结构.drawio.svg) 
+![](Java集合/Java8HashMap结构.drawio.svg)
 
 > 插入时先进行插入，插入完成再判断是否需要扩容
 
@@ -87,7 +87,7 @@
 >
 > 个人理解可能存在错误观点
 
-![](Java集合/HashMap头插法危害.drawio.svg) 
+![](Java集合/HashMap头插法危害.drawio.svg)
 
 ### ConcurrentHashMap
 
@@ -95,7 +95,7 @@
 
 > Java7中ConcurrentHashMap采用与HashMap相同的 **存储格式：数据+链表** ，但引入了Segment分段锁的概念，转变成了两层结构，第一次Hash确定所在Segment，第二次Hash确定具体的节点位置
 
-![](Java集合/Java7ConcurrentHashMap原理.drawio.svg) 
+![](Java集合/Java7ConcurrentHashMap原理.drawio.svg)
 
 #### Java8中的ConcurrentHashMap
 

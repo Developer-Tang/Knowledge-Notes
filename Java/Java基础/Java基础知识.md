@@ -61,7 +61,7 @@
 
 ## String类
 
-> final修饰的类，不可被继承，底层通过 `char[]` 存储，字符串操作时会返回一个新的String
+> final修饰的类，不可被继承，底层通过 `char[]` 存储，成员变量有final修饰，字符串操作时会返回一个新的String
 >
 
 ```java
@@ -80,7 +80,8 @@ public final class String
     //...
     public String replace(char oldChar, char newChar) {
         if (oldChar != newChar) {
-            /*...*/{
+            /*...*/
+            {
                 return new String(buf, true);
             }//...
         }
@@ -99,7 +100,7 @@ public final class String
 
 ## static关键字的特点
 
-> static修饰的类只能时内部类，且静态内部类只能访问外部类的静态变量及静态方法
+> static修饰的类只能是内部类，且静态内部类只能访问外部类的静态变量及静态方法
 
 > static修饰的方法，可以直接通过类名调用，不需要实例化对象调用，且不能方法实例成员变量
 
@@ -204,5 +205,14 @@ public final class String
 > - 防止重复加载同一个class对象。
 > - 保证核心class对象不能被篡改。保证了Class执行安全。
 
-![](Java基础知识/双亲委派机制.drawio.svg) 
+![](Java基础知识/双亲委派机制.drawio.svg)
 
+## 动态代理
+
+### JDK动态代理
+
+> JDK中的动态代理是通过反射类Proxy以及InvocationHandler回调接口实现的，但是JDK中所有要进行动态代理的类必须要实现一个接口，也就是说只能对该类所实现接口中定义的方法进行代理，这在实际编程中有一定的局限性，而且使用反射的效率也不高
+
+### Cglib动态代理
+
+> 使用cglib是实现动态代理，不受代理类必须实现接口的限制，因为cglib底层是用ASM框架，使用字节码技术生成代理类，你使用Java反射的效率要高，cglib不能对声明final的方法进行代理，因为cglib原理是动态生成被代理类的子类
