@@ -1,2 +1,3 @@
 - **MySQL**
     - [Mysql常见语法.md](/Mysql/Mysql常见语法.md)
+    - [Mysql索引.md](/Mysql/Mysql索引.md)
