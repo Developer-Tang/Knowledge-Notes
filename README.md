@@ -33,9 +33,8 @@
     3. SqlSession
     4. c3p0、druid连接池
 6. Mysql
-    1. sql编写
-    2. 索引优化
-    3. 存储引擎
+    1. 存储引擎
+    2. 业务场景sql优化
 7. Maven
 8. Spring
     1. DI
