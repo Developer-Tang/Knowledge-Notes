@@ -1,4 +1,3 @@
 ## InnoDB
 
 ## MyISAM
-~~~~
