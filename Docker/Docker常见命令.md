@@ -113,7 +113,7 @@ docker run [options] image
 #   --expose=[]: 开放一个端口或一组端口
 #   --volume , -v: 绑定一个卷
 # 例：
-# docker run -itd -p 3306:3306 redis
+# docker run -itd -p 6379:6379 redis
 ```
 
 ### create仅创建容器
