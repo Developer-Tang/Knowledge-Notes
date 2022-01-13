@@ -24,7 +24,7 @@ docker search imageName[:tag]
 ```shell
 docker pull imageName[:version]
 # imageName： 镜像名称，必填
-# tag：版本号/版本标识，选填，不填默认拉去STARS最多的一个
+# tag：版本号/版本标识，选填，不填默认拉去latest版本
 # 例：
 # docker pull redis
 ```
@@ -113,7 +113,7 @@ docker run [options] image
 #   --expose=[]: 开放一个端口或一组端口
 #   --volume , -v: 绑定一个卷
 # 例：
-# docker run -itd -p 3306:3306 redis
+# docker run -itd -p 6379:6379 redis
 ```
 
 ### create仅创建容器
