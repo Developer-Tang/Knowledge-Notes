@@ -1,6 +1,7 @@
 - [📖**首页**](/README)
 - [**Java**](/Java/README.md)
 - [**MySQL**](/Mysql/README.md)
+- [**Redis**](/Redis/README.md)
 - [**RabbitMQ**](/RabbitMQ/README.md)
 - [**Docker**](/Docker/README.md)
 - [**Kubernetes**](/Kubernetes/README.md)
