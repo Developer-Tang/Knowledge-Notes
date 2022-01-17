@@ -7,5 +7,3 @@
     - [锁.md](/Java/Java基础/锁.md)
 - **JVM**
     - [JVM内存模型.md](/Java/JVM/JVM内存模型.md)
-- **Spring**
-    - [Spring基础知识.md](/Java/Spring/Spring基础知识.md)
