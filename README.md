@@ -19,59 +19,55 @@
     2. 垃圾回收机制
     3. JVM参数调优【低优先级】
 3. Java锁
-    1. synchronize
+    1. Synchronize
     2. Lock
     3. ReadWriteLock
     4. ReentrantLock
-4. Java新特性
-    1. HashMap的结构变化【链接Java集合.md?id=HashMap】
-    2. Lambda
-    3. Stream
-5. JDBC
-    1. DriveManage
-    2. SqlSessionFactory
-    3. SqlSession
-    4. c3p0、druid连接池
-6. Mysql
+4. JDBC
+    5. DriveManage
+    6. SqlSessionFactory
+    7. SqlSession
+    8. c3p0、druid连接池
+5. Mysql
     1. 存储引擎
     2. 业务场景sql优化
-7. Maven
-8. Spring
+6. Maven
+7. Spring
     1. DI
     2. IOC
     3. BeanFactory
     4. ApplicationContext
     5. AOP
     6.
-9. SpringMVC
+8. SpringMVC
     1. mvc模型
     2.
-10. Mybatis
+9. Mybatis
     1. Mapper映射
     2. 一二级缓存
-11. Tomcat
-12. SpringBoot
-13. MybatisPlus
-14. Nginx
-15. Redis
+10. Tomcat
+11. SpringBoot
+12. MybatisPlus
+13. Nginx
+14. Redis
     1. 存储数据结构
     2. 缓存淘汰机制
     3. IO多路复用
     4. 分布式锁实现
-16. RockMQ、RabbitMQ
-17. Dubbo
+15. RockMQ、RabbitMQ
+16. Dubbo
     1. RPC原理
     2. 通讯协议
     3.
-18. Zookeeper
-19. SpringCloud
-20. SpringCloudAlibaba
-21. Kafka
-22. ElasticSearch
-23. Docker
-24. K8S
-25. Jenkins
-26. 数据结构
-27. 算法
-28. 网络通信
-29. Linux
+17. Zookeeper
+18. SpringCloud
+19. SpringCloudAlibaba
+20. Kafka
+21. ElasticSearch
+22. Docker
+23. K8S
+24. Jenkins
+25. 数据结构
+26. 算法
+27. 网络通信
+28. Linux
