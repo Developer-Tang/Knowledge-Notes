@@ -1,4 +1,4 @@
-## WorkQueues
+## WorkQueues工作队列模式
 
 ![WorkQueues工作模式简图](RabbitMQ工作模式/WorkQueues工作模式简图.drawio.svg)
 
@@ -10,7 +10,7 @@
 
 > 应用场景：任务过多或过重时可以提高任务处理的效率
 
-## Publish/Subscribe
+## Publish/Subscribe订阅模式
 
 ![Pub-Sub订阅模式简图](RabbitMQ工作模式/Pub-Sub订阅模式简图.drawio.svg)
 
@@ -23,6 +23,8 @@
 - **队列(Queue)：** 接收和存储消息
 - **消费者：** 消费消息的程序
 
-## Routing
+## Routing路由模式
 
-## Topics
+> 与订阅模式结构相似，只有匹配的 `routing_key` 的队列才能接收到消息`
+
+## Topics话题模式
