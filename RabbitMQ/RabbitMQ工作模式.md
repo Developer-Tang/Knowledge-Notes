@@ -25,6 +25,7 @@
 
 ## Routing路由模式
 
-> 与订阅模式结构相似，只有匹配的 `routing_key` 的队列才能接收到消息`
+![Routing路由模式简图](RabbitMQ工作模式/Routing路由模式简图.drawio.svg)
+> 与订阅模式结构相似，只有匹配的 `routing_key` 的队列才能接收到消息
 
 ## Topics话题模式
