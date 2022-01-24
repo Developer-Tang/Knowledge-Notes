@@ -1,1 +1,1 @@
-Redis
+<h1 style="color: cornflowerblue">Redis</h1>

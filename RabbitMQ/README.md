@@ -1,1 +1,1 @@
-RabbitMQ
+<h1 style="color: cornflowerblue">RabbitMQ</h1>
