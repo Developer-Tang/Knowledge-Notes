@@ -69,7 +69,7 @@ public final class String
         implements java.io.Serializable, Comparable<String>, CharSequence {
     //...
     /** The value is used for character storage. */
-    private final char value[];
+    private final char[] value;
 
     //...
     public String substring(int beginIndex) {
