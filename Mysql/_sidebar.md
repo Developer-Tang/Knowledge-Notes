@@ -2,3 +2,4 @@
     - [Mysql常见语法.md](/Mysql/Mysql常见语法.md)
     - [Mysql索引.md](/Mysql/Mysql索引.md)
     - [Mysql搜索引擎.md](/Mysql/Mysql存储引擎.md)
+    - [Mysql常见问题.md](/Mysql/Mysql常见问题.md)
